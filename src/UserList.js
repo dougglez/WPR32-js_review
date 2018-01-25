@@ -24,14 +24,34 @@ class UserList extends Component {
   }
 
   filterUsers(filteredValue, filterBy) {
-    console.log(filteredValue, filterBy)
+    console.log(filteredValue, filterBy);
     let filtered = this.state.users.filter(v => {
       console.log(v[filteredValue], filterBy)
       return v[filteredValue] === filterBy
     });
-    console.log('filtered:', filtered)
+    console.log('filtered:', filtered);
     this.setState({
       filtered: filtered,
+      isFiltered: true
+    });
+  }
+
+  pickNumOfUsers(num) {
+    axios.get(`https://randomuser.me/api/?results=${num}`)
+      .then(res => this.setState({
+        users: res.data.results
+      }))
+      .catch(err => console.log(err));
+  }
+
+  filterByPartialName(partialName) {
+    console.log(partialName);
+    let partialMatches = this.state.users.filter( (user, index, users) => {
+      let fullName = user.name.first + user.name.last;
+      return fullName.indexOf(partialName) >= 0;     
+    });
+    this.setState({
+      filtered: partialMatches,
       isFiltered: true
     })
   }
@@ -63,6 +83,11 @@ class UserList extends Component {
           </div>
           <button className="btn-button" onClick={() => this.filterUsers(this.state.filteredValue,this.state.filterBy)}>Search</button>
           <button className="btn-button" onClick={() => this.setState({isFiltered:false})}>Reset</button>
+        </div>
+        <div>
+          <button className="btn-five btn-button" onClick={() => this.pickNumOfUsers(5)}>5</button>
+          <button className="btn-five btn-button" onClick={() => this.pickNumOfUsers(10)}>10</button>
+          <button className="btn-five btn-button" onClick={() => this.pickNumOfUsers(25)}>25</button>
         </div>
         <div className="user-wrapper">
           {users}

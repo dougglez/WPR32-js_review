@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function User (props) {
-  // console.log(props.user);
+  console.log(props.user);
     return (
       <div className="user-component-wrapper">
 
