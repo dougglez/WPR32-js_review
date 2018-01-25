@@ -14,40 +14,15 @@ class UserList extends Component {
       isFiltered: false
     }
   }
-
-  componentDidMount(){
-    axios.get('https://randomuser.me/api/?results=25')
-      .then(res => this.setState({
-        users: res.data.results
-      }))
-      .catch(err => console.log(err));
-  }
-
-  filterUsers(filteredValue, filterBy) {
-    console.log(filteredValue, filterBy)
-    let filtered = this.state.users.filter(v => {
-      console.log(v[filteredValue], filterBy)
-      return v[filteredValue] === filterBy
-    });
-    console.log('filtered:', filtered)
-    this.setState({
-      filtered: filtered,
-      isFiltered: true
-    })
-  }
+  // API for random users
+// 'https://randomuser.me/api/?results=25'
 
   render() {
-    console.log(this.state.filterBy)
-    let users = this.state.isFiltered ? this.state.filtered.map((user,i) => (
-      <User user={user} key={i}/>
-    ))
-    : this.state.users.map((user,i) => (
-      <User user={user} key={i}/>
-    ))
+    
     return (
       <div className="component-wrapper userlist-component-wrapper">
         <div className="buttons">
-          <select className="btn-select" onChange={e => this.setState({filteredValue: e.target.value})}>
+          <select className="btn-select" onChange={() => ''}>
             <option disabled selected value> -- select an option -- </option>
             <option value="name.first">Name</option>
             <option value="gender">Gender</option>
@@ -58,14 +33,14 @@ class UserList extends Component {
             id="name" 
             className="btn-input" 
             placeholder="Filter By..."
-            onChange={e => this.setState({filterBy: e.target.value})}
+            onChange={() => ''}
             />
           </div>
-          <button className="btn-button" onClick={() => this.filterUsers(this.state.filteredValue,this.state.filterBy)}>Search</button>
-          <button className="btn-button" onClick={() => this.setState({isFiltered:false})}>Reset</button>
+          <button className="btn-button" onClick={() => ''}>Search</button>
+          <button className="btn-button" onClick={() => ''}>Reset</button>
         </div>
         <div className="user-wrapper">
-          {users}
+
         </div>
       </div>
     );
