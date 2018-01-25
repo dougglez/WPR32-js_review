@@ -1,0 +1,129 @@
+.App-wrapper {
+
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #53346D, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #53346D, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* height: 100vh; */
+  /* width: 100vw; */
+}
+
+.app-header {
+  height: 100px;
+  background: #000;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 50px;
+}
+
+/*  */
+/*  */
+/* USER LIST COMPONENT */
+/*  */
+/*  */
+.userlist-component-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+}
+
+.btn-select {
+  background: #E6E8E6;
+  border-radius: 7px;
+  height: 35px;
+  width: 225px;
+  font-size: 18px;
+}
+
+.btn-select:focus {
+  outline:none;
+}
+
+.btn-input-wrapper {
+  /* border-bottom: 1px solid white;   */
+
+}
+
+.btn-input {
+  border-radius: 7px;
+  border: none;
+  background: #E6E8E6;
+  height: 32px;
+  width: 225px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.btn-input:focus {
+  outline:none;
+}
+
+.btn-button {
+  border-radius: 7px;
+  border: none;
+  background: #E6E8E6;
+  height: 32px;
+  font-size: 18px;
+}
+
+.user-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/*  */
+/*  */
+/* USER COMPONENT */
+/*  */
+/*  */
+.user-component-wrapper {
+  height: 225px;
+  width: 425px;
+  background: #E6E8E6;
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 5px 10px 5px rgb(24, 15, 33);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 25px;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+
+  height: 90%;
+  width: 85%
+}
+
+.user-card-img {
+  border-radius: 7px;
+  /* border: 1px solid black; */
+  box-shadow: 5px 10px 5px rgb(149, 147, 152);
+}
+
+.user-card-words {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #22333B;
+  margin-left: 15px;
+}
+
+.user-card-name {
+  text-transform: capitalize;
+}
+.user-card-username {
+  
+}
